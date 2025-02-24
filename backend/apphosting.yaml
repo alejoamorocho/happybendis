@@ -1,0 +1,19 @@
+runtime: custom
+env: flex
+service: happybendis-backend
+env_variables:
+  DJANGO_SETTINGS_MODULE: "backend.settings"
+  GEMINI_API_KEY: "AIzaSyDbC1-wyACGCFHsABP2WV20dBupozsDqEc"
+
+# Los secretos como FIREBASE_ADMIN_SDK_PATH se manejarán a través de Secret Manager
+
+manual_scaling:
+  instances: 1
+
+resources:
+  cpu: 1
+  memory_gb: 2
+  disk_size_gb: 10
+
+network:
+  session_affinity: true

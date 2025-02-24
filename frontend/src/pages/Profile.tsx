@@ -50,8 +50,7 @@ const Profile = () => {
     fetchProfile()
   }, [user, navigate])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     if (!user || !profile) return
 
     setIsSaving(true)
@@ -155,7 +154,7 @@ const Profile = () => {
                   type="text"
                   id="name"
                   value={profile.name}
-                  onChange={(e) => isEditing && setProfile({ ...profile, name: e.target.value })}
+                  onChange={() => isEditing && setProfile({ ...profile, name: (document.getElementById('name') as HTMLInputElement).value })}
                   disabled={!isEditing}
                   className="mt-1 block w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3CB371] focus:border-[#3CB371] disabled:bg-gray-100"
                 />
@@ -191,9 +190,9 @@ const Profile = () => {
                   type="text"
                   id="childName"
                   value={profile.child.name}
-                  onChange={(e) => isEditing && setProfile({
+                  onChange={() => isEditing && setProfile({
                     ...profile,
-                    child: { ...profile.child, name: e.target.value }
+                    child: { ...profile.child, name: (document.getElementById('childName') as HTMLInputElement).value }
                   })}
                   disabled={!isEditing}
                   className="mt-1 block w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3CB371] focus:border-[#3CB371] disabled:bg-gray-100"
@@ -208,9 +207,9 @@ const Profile = () => {
                   type="text"
                   id="childBirthdate"
                   value={formatDate(profile.child.birthdate)}
-                  onChange={(e) => isEditing && setProfile({
+                  onChange={() => isEditing && setProfile({
                     ...profile,
-                    child: { ...profile.child, birthdate: e.target.value }
+                    child: { ...profile.child, birthdate: (document.getElementById('childBirthdate') as HTMLInputElement).value }
                   })}
                   disabled={!isEditing}
                   className="mt-1 block w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3CB371] focus:border-[#3CB371] disabled:bg-gray-100"
@@ -228,7 +227,7 @@ const Profile = () => {
                       type="radio"
                       value="niño"
                       checked={profile.child.gender === 'niño'}
-                      onChange={(e) => isEditing && setProfile({
+                      onChange={() => isEditing && setProfile({
                         ...profile,
                         child: { ...profile.child, gender: 'niño' }
                       })}
@@ -242,7 +241,7 @@ const Profile = () => {
                       type="radio"
                       value="niña"
                       checked={profile.child.gender === 'niña'}
-                      onChange={(e) => isEditing && setProfile({
+                      onChange={() => isEditing && setProfile({
                         ...profile,
                         child: { ...profile.child, gender: 'niña' }
                       })}

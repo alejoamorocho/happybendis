@@ -1,0 +1,12 @@
+{
+  "apphosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/__pycache__/**",
+      "**/venv/**"
+    ]
+  }
+}

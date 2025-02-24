@@ -105,5 +105,96 @@ Para ejecutar Happy Bendis usando Docker, sigue estos pasos:
   docker-compose restart backend  # o frontend
   ```
 
+## 🌐 Demo en Vivo
+
+Prueba Happy Bendis aquí: [https://happybendis.web.app](https://happybendis.web.app)
+
+## 🏗️ Arquitectura Actualizada
+
+La aplicación utiliza una arquitectura moderna dividida en dos partes principales:
+
+### Frontend (Firebase Hosting)
+- React + Vite
+- Chakra UI para la interfaz
+- Firebase Authentication
+- Firebase Firestore
+- Desplegado en Firebase Hosting
+
+### Backend (Cloud Run)
+- Python Django
+- Gemini API para IA
+- Firebase Admin SDK
+- Desplegado en Google Cloud Run
+
+## 🚀 URLs de Producción
+
+- **Frontend**: [https://happybendis.web.app](https://happybendis.web.app)
+- **Backend API**: [https://happybendis-backend-11372342968.us-central1.run.app](https://happybendis-backend-11372342968.us-central1.run.app)
+
+## 💻 Desarrollo Local
+
+### Requisitos Previos
+- Node.js 18 o superior
+- Python 3.11 o superior
+- Docker (para desarrollo del backend)
+
+### Configuración del Frontend
+
+```bash
+cd frontend
+npm install
+# Crea un archivo .env.local con las variables necesarias
+npm run dev
+```
+
+### Configuración del Backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+pip install -r requirements.txt
+# Crea un archivo .env con las variables necesarias
+python manage.py runserver
+```
+
+## 🔐 Variables de Entorno
+
+### Frontend (.env.local)
+```
+VITE_FIREBASE_API_KEY=tu_api_key
+VITE_FIREBASE_AUTH_DOMAIN=tu_dominio
+VITE_FIREBASE_PROJECT_ID=tu_proyecto_id
+VITE_FIREBASE_STORAGE_BUCKET=tu_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=tu_sender_id
+VITE_FIREBASE_APP_ID=tu_app_id
+VITE_FIREBASE_MEASUREMENT_ID=tu_measurement_id
+VITE_API_URL=https://happybendis-backend-11372342968.us-central1.run.app
+```
+
+### Backend (.env)
+```
+GEMINI_API_KEY=tu_gemini_api_key
+FIREBASE_ADMIN_SDK_PATH=firebase-admin-sdk.json
+```
+
+## 🔄 CI/CD
+
+El proyecto utiliza un flujo de despliegue automatizado:
+- Frontend: Firebase Hosting
+- Backend: Google Cloud Run con contenedores Docker
+
+## 👥 Contribuir
+
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
 ## Creado por 👨‍💻
 Alejandro Amorocho

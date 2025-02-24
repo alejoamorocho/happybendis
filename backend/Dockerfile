@@ -20,8 +20,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar el código del proyecto
 COPY . .
 
-# Exponer el puerto que usa Django
-EXPOSE 8000
+# Puerto que usará la aplicación
+ENV PORT 8080
+
+# Variables de entorno para producción
+ENV DEBUG False
+ENV PYTHONUNBUFFERED 1
 
 # Comando para ejecutar la aplicación
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 happybendis.wsgi:application

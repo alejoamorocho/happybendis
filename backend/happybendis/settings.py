@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)gd842@jg+fek78gns8(!mq!o_pmkjr&pz0#bsja&s49ms8+89'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']  # Permitir todos los hosts en Cloud Run
 
 # Application definition
 
@@ -122,8 +122,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # CORS configuration
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True  # Permitir CORS para desarrollo
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Vite dev server
+    "https://happybendis.web.app",  # Firebase Hosting URL
+]
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
