@@ -68,5 +68,42 @@ GEMINI_API_KEY=...
 python manage.py runserver
 ```
 
+## 🐳 Despliegue con Docker
+
+Para ejecutar Happy Bendis usando Docker, sigue estos pasos:
+
+1. Asegúrate de tener Docker y Docker Compose instalados en tu sistema.
+
+2. Crea un archivo `.env` en la raíz del proyecto con las variables de entorno necesarias:
+   ```env
+   GEMINI_API_KEY=tu_api_key_de_gemini
+   ```
+
+3. Construye y ejecuta los contenedores:
+   ```bash
+   docker-compose up --build
+   ```
+
+4. Accede a la aplicación:
+   - Frontend: http://localhost
+   - Backend: http://localhost:8000
+
+### Comandos útiles de Docker
+
+- Detener los contenedores:
+  ```bash
+  docker-compose down
+  ```
+
+- Ver logs de los contenedores:
+  ```bash
+  docker-compose logs -f
+  ```
+
+- Reiniciar un servicio específico:
+  ```bash
+  docker-compose restart backend  # o frontend
+  ```
+
 ## Creado por 👨‍💻
 Alejandro Amorocho
