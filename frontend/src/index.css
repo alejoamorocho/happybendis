@@ -22,3 +22,41 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+@layer base {
+  /* Estilos base */
+}
+
+@layer components {
+  .prose {
+    @apply text-gray-800;
+  }
+  
+  .prose strong {
+    @apply font-bold text-emerald-700;
+  }
+  
+  .prose p {
+    @apply my-2;
+  }
+  
+  .prose ul {
+    @apply my-3 space-y-2;
+  }
+  
+  .prose li {
+    @apply my-1;
+  }
+  
+  .prose ol {
+    @apply my-3 space-y-2 list-decimal pl-4;
+  }
+  
+  .prose ol > li {
+    @apply pl-2;
+  }
+  
+  .prose ul > li {
+    @apply pl-2;
+  }
+}
